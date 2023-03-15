@@ -956,7 +956,7 @@ MonoBehaviour:
   moveSpeed: 5
   runSpeed: 10
   maxStamina: 100
-  staminaRegenRate: 10
+  staminaRegenRate: 4
   staminaDepletionRate: 20
   staminaSlider: {fileID: 68688493}
   staminaCooldown: 2
