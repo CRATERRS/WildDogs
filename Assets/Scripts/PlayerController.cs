@@ -6,37 +6,43 @@ public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 5f;
     public float jumpForce = 10f;
-    public Transform groundCheck;
-    public LayerMask groundLayer;
+    //public Transform groundCheck;
+    //public LayerMask groundLayer;
 
     private Rigidbody rb;
-    private Animator animator;
-    private bool isGrounded;
+    //private bool isGrounded;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        float moveX = Input.GetAxisRaw("Horizontal");
-        float moveZ = Input.GetAxisRaw("Vertical");
-        Vector3 movement = new Vector3(moveX, 0f, moveZ);
+        float moveHorizontal = Input.GetAxisRaw("Horizontal");
+        float moveVertical = Input.GetAxisRaw("Vertical");
+        Vector3 movement = new Vector3(moveHorizontal, 0f, moveVertical);
         rb.velocity = movement.normalized * moveSpeed;
 
-        isGrounded = Physics.CheckSphere(groundCheck.position, 0.1f, groundLayer);
-        animator.SetBool("isGrounded", isGrounded);
+       /* isGrounded = Physics.CheckSphere(groundCheck.position, 0.1f, groundLayer);
 
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-        }
+        }*/
 
-        animator.SetFloat("moveSpeed", movement.magnitude);
+    }
+
+    private void FixedUpdate()
+    {
+        
+
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        }
     }
 }
 
