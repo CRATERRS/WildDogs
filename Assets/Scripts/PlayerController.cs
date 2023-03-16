@@ -111,15 +111,15 @@ public class PlayerController : MonoBehaviour
 
     void UpdateMouseLook()
     {
-       // Vector2 mouseDelta = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
+        Vector2 mouseDelta = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
 
-        //cameraPitch -= mouseDelta.y * mouseSensitivity;
+        cameraPitch -= mouseDelta.y * mouseSensitivity;
 
         cameraPitch = Mathf.Clamp(cameraPitch, -90.0f, 90.0f);
 
         playerCamera.localEulerAngles = Vector3.right * cameraPitch;
 
-        //transform.Rotate(Vector3.up * mouseDelta.x * mouseSensitivity);
+        transform.Rotate(Vector3.up * mouseDelta.x * mouseSensitivity);
     }
 }
 
