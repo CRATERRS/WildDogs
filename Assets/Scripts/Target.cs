@@ -6,6 +6,9 @@ public class Target : MonoBehaviour
 {
     public float healt = 50f;
 
+
+   
+
     public void TakeDamage(float amount)
     {
         healt -= amount;
