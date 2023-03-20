@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody rb;
     private Vector3 moveDirection;
+    private bool isWalking;
     private bool isRunning;
     private float currentStamina;
 
@@ -121,5 +122,19 @@ public class PlayerController : MonoBehaviour
 
         transform.Rotate(Vector3.up * mouseDelta.x * mouseSensitivity);
     }
+
+    public int GetPlayerStealthProfile()
+    {
+        if(isWalking)
+        {
+            return 0;
+        }
+        else
+        {
+            return 1;
+        }
+    }
+
+    
 }
 
